@@ -1,15 +1,13 @@
 provider "aws" {
   region= "ap-south-1"
 }
-resource "aws_instance" "Ganesh" {
-  count ="1"
-  ami ="ami-0f8ca728008ff5af4"
-  instance_type ="t2.micro"
-  key name = "DevOps"
-  subnet_id = "subnet-03e27f96cca27f839"
-  security_groups =["sg-072cdae8ac82bde0f"]
-   tags = {
-    Name = "nameserver"
-    Enc  = "dev"
-  }  
+
+resource "aws_instance" "web" {
+  ami           = "ami-0f8ca728008ff5af4"
+  instance_type = "t3.micro"
+  subnet_id     = "subnet-03e27f96cca27f839"
+
+  tags = {
+    Name = "HelloWorld"
+  }
 }
